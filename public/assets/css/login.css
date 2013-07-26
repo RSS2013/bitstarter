@@ -1,0 +1,7 @@
+.myButton {
+    background:url(/assets/img/signup.jpg) no-repeat;
+    cursor:pointer;
+    width:  196px;
+    height: 106px;
+    border: none;
+}  

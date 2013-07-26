@@ -1,10 +1,18 @@
 /* A quick, extra large button */
 .btn-xlarge {
     padding: 10px 10px;
+    margin-top: 20px;
+    margin-left: 0px;
     font-size: 16px;
     -webkit-border-radius: 6px;
        -moz-border-radius: 6px;
             border-radius: 6px;
+}
+
+.btn-signup {
+    padding: 40px 70px;
+    margin: 10px 0px;
+    font-size: 30px;
 }
 
 .btn-xlarge [class^="icon-"],

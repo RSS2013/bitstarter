@@ -81,16 +81,38 @@
         		<h1>Welcome to TawkTalk.</h1>
         		<p>TawkTalk instantly connects you to native speakers in any language and on any device!</p>
 		</div>
-		<div class="span5">
-			<button class="btn btn-signup btn-success" href=#SignUp type="submit">SIGN UP</button>
-		</div>
         <div class="span5">
-            <div class="span1">
+           <form id="signup" class="form-horizontal" method="post" action="success.php">
+                <legend>Sign Up</legend>
+        <div class="control-group">
+              <div class="controls">
+                <div class="input-prepend">
+                    <input type="text" class="input-xlarge" id="email" name="email" placeholder="Email">
+                </div>
             </div>
-            <button class="btn-xlarge btn-facebook"><i class="icon-facebook"></i></button>
-            <button class="btn-xlarge btn-linkedin"><i class="icon-linkedin"></i></button>
-            <button class="btn-xlarge btn-google-plus"><i class="icon-google-plus"></i></button>
-            <button class="btn-xlarge btn-twitter"><i class="icon-twitter"></i></button>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-prepend">
+                    <input type="Password" id="passwd" class="input-xlarge" name="passwd" placeholder="Password">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-prepend">
+                    <input type="Password" id="conpasswd" class="input-xlarge" name="conpasswd" placeholder="Re-enter Password">
+                </div>
+            </div>
+        </div>
+ 
+        <div class="control-group">
+          <div class="controls">
+           <button type="submit" class="btn btn-success" >Create <span id="IL_AD7" class="IL_AD">My Account</span></button>
+          </div>
+    </div>
+      </form>
+ 
         </div>
 	</div>
       </div>

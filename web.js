@@ -11,6 +11,10 @@ app.get('/', function(request, response) {
   response.send(filebuf.toString());
 });
 
+app.get('/success.html', function(request, response) {
+	response.send("You have submitted a registration request. Thank you!");
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 var port = process.env.PORT || 8080;
 app.listen(port, function() {

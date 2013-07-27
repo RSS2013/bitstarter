@@ -1189,9 +1189,10 @@ fieldset {
 legend {
   display: block;
   width: 100%;
-  padding: 0;
-  margin-bottom: 20px;
-  font-size: 21px;
+  height: 30px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  font-size: 22px;
   line-height: 40px;
   color: #333333;
   border: 0;
@@ -1987,7 +1988,7 @@ legend + .control-group {
   -webkit-margin-top-collapse: separate;
 }
 .form-horizontal .control-group {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   *zoom: 1;
 }
 .form-horizontal .control-group:before,

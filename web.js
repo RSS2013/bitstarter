@@ -32,10 +32,14 @@ app.get('/', function(request, response) {
 });
 
 app.post('/success', function(request, response) {
+
 	email = request.body.email;
-	password = request.body.password;
+	password = requesit.body.password;
 
 	HandleUserRegistration(	email, password );
+	console.log('email:' + request.body.email);
+    console.log('password:' + request.body.passwd);
+    console.log('confirmpassword:' + request.body.conpasswd);
 	response.end();
 });
 

@@ -63,3 +63,38 @@ section {
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* The login page css for customizing bootstrap */
+.my-legend {
+    padding-top: 20px;
+    line-height: 25px;
+}
+
+legend + .my-control-group {
+    margin-top: 0px;
+}
+
+.form-horizontal .my-control-group {
+    margin-bottom: 6px;
+}
+
+.form-horizontal .my-controls {
+    margin-left: 0px;
+}
+
+input[type="my-text"], input[type="my-password"]{
+    height: 30px;
+    padding: 4px 6px;
+    line-height: 20px;
+}
+
+input[type="my-text-top"], input[type="my-password-top"]{
+    height: 25px;
+    padding: 4px 6px;
+    line-height: 20px;
+}
+
+.my-btn-success {
+    margin-left: 120px;
+    margin-top: 6px;
+} 

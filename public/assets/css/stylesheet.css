@@ -65,6 +65,21 @@ section {
 }
 
 /* The login page css for customizing bootstrap */
+.my-unit {
+    background-color: rgba(212, 230, 193, 0.64);
+}
+
+.hero-unit .my-h1 {
+    font-family: "Helvetica Neue"; 
+    font-size: 50px;
+}
+
+.hero-unit .my-p {
+    font-size: 20px;
+    font-family: "Helvetica Neue" 
+    line-height: 22px;
+}
+
 .my-legend {
     padding-top: 20px;
     line-height: 25px;
@@ -95,6 +110,6 @@ input[type="my-text-top"], input[type="my-password-top"]{
 }
 
 .my-btn-success {
-    margin-left: 120px;
+    margin-left: 100px;
     margin-top: 6px;
 } 

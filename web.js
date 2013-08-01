@@ -9,10 +9,9 @@ var app = express.createServer(express.logger());
 
 //Sets up a database to store usernames and emails
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Users');
+mongoose.connect('mongodb://localhost/UserZ');
 
-var usersSchema = mongoose.Schema({ name: String, email: String, date: String });
-var Users = mongoose.model('Users', usersSchema);
+var Users = require('./models/user-model.js'); 
 //err callback
 var db = mongoose.connection;
 
@@ -32,9 +31,8 @@ app.get('/', function(request, response) {
 });
 
 app.post('/success', function(request, response) {
-
 	email = request.body.email;
-	password = requesit.body.password;
+	password = request.body.passwd;
 
 	HandleUserRegistration(	email, password );
 	console.log('email:' + request.body.email);
@@ -52,46 +50,53 @@ app.listen(port, function() {
 });
 
 var HandleUserRegistration = function (email,pass){
-var addFlag = 1;
+var addFlag = true;
 //Create user model
 
 //check if email exists in the db
 Users.find({ email:email }, function(err, found) {
-	
+
+	console.log("\n"+found+"\n");	
 	if(err) {
 	
 	console.log("trouble reading from db");
 	
 	}
-	else if (found[0].email == email) {
-	
+	else if (found.length > 0) {
+
 	console.log(found);
 	console.log("did you already register?");
-	addFlag = 0;
-	
+	addFlag = false;
 	}
+
 	console.log("\n the output of found was " + found);
-});
-	
 	
 
-
-//if yes let the user know and ask if they forgot their password
-
-//if no send an email, add the record to the username database, and let user know that it was successful
-
-//create the User
-if (addFlag == 1){
-	var User = new Users({email: email, password: pass, date: "7/29/2013"});
-
-	//Save user to Users DB
-	User.save( function (err, User) {
+	
 		
+	console.log("the output of:" +addFlag);
+
+	//if yes let the user know and ask if they forgot their password
+
+	//if no send an email, add the record to the username database, and let user know that it was successful
+
+	//create the User
+	if (addFlag == true){
+		var User = new Users({email: email, password: pass});
+
+		//Save user to Users DB
+		User.save( function (err, User) {
+			
 		if(err) {
 			console.log("something bad happened when saving a User");
 		}
-});
+		else{
+			console.log("\n\n" + User + "\n\nRegistered");
+		}
+	});
 
-}
+
+	}
+});
 
 }

@@ -28,11 +28,6 @@ app.get('/', function(request, response) {
 	response.send(filebuf.toString());
 });
 
-var port = process.env.PORT || 8080;
-app.listen(port, function() {
-  console.log("Listening on " + port);
-});
-
 //Sets up a database to store usernames and emails
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/UserZ');
@@ -53,11 +48,9 @@ db.once('open', function callback() {
 //This is the response generated for a signup submission
 app.post('/success', function(request, response) {
 	
-	var newUser = true;
 	email = request.body.email;
 	password = request.body.passwd;
-	newUser = HandleUserRegistration(email, password );
-	console.log("new user is:"+ newUser);
+	HandleUserRegistration(email, password );
 	response.end();
 
 });
@@ -87,6 +80,7 @@ var HandleUserRegistration = function (email,pass){
 		}
 
 		
+		
 
 		//if no send an email, add the record to the username database, and let user know that it was successful
 
@@ -96,29 +90,34 @@ var HandleUserRegistration = function (email,pass){
 			// Create a user following the compiled schema (model) from /models/user-model.js
 			var User = new Users({email: email, password: pass});
 
-		//Save user to the connected db using the custom middleware defined save in user-model.js (salty crypto)
-		User.save( function (err, User) {
-			
-			if(err) {
+			//Save user to the connected db using the custom middleware defined save in user-model.js (salty crypto)
+			User.save( function (err, User) {
+				
+				if(err) {
 
-				console.log("something bad happened when saving a User");
+					console.log("something bad happened when saving a User");
 
-			}
-			
-			else {
+				}
+				
+				else {
 
 				console.log("\n\n" + User + "\n\nRegistered");
+				HandleUserSignIn(email,pass);	
 				
 				//Send an email to let user know that it was successful
-			}
+			
+				}
 		
-		});
+			});
 
 
-	}
+		}
 
-	return addFlag;
-});
+	
+	});
 
 }
+var HandleUserSignIn = function (email, pass) {
+
+}	
 

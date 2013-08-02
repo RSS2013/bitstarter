@@ -121,6 +121,4 @@ var HandleUserRegistration = function (email,pass){
 });
 
 }
-HandleUserSignIn(email, pass) {
-
 

@@ -2,8 +2,10 @@
 //Basic require statements
 var fs = require('fs');
 var infile = "index.html";
+var infile2 = "profile.html";
 var out = "Takes stuff from index.html";
 var filebuf= fs.readFileSync(infile);
+var filebuf2= fs.readFileSync(infile2);
 var express = require('express');
 var path = require('path');
 
@@ -28,6 +30,11 @@ app.get('/', function(request, response) {
 	response.send(filebuf.toString());
 });
 
+//Responds to a /profile with the contents of profile.html
+app.get('/profile.html', function(request, response) {
+        
+	response.send(filebuf2.toString());
+});
 //Sets up a database to store usernames and emails
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/UserZ');

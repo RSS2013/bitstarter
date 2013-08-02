@@ -65,8 +65,29 @@ section {
 }
 
 /* The login page css for customizing bootstrap */
+.my-background {
+    background-color: #cdd4db;
+}
+
+.navbar .my-brand {
+    color: #FFF2F2;
+}
+
+.navbar-fixed-top .my-navbar-inner {
+    background-color: #3B3C4B; 
+    background-image: none;
+}
+
+.navbar .nav>li>a {
+    color: #D8D8D8;
+}
+
+.my-navbar-text {
+    color: #ABC345;
+}
+
 .my-unit {
-    background-color: rgba(212, 230, 193, 0.64);
+    background-color: #eeeeee;
 }
 
 .hero-unit .my-h1 {
@@ -113,3 +134,8 @@ input[type="my-text-top"], input[type="my-password-top"]{
     margin-left: 100px;
     margin-top: 6px;
 } 
+
+.my-avatar {
+    height: 250px;
+    width: 250px;
+}

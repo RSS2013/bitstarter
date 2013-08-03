@@ -79,7 +79,11 @@ section {
 }
 
 .navbar .nav>li>a {
-    color: #D8D8D8;
+    color: #cdbfe3;
+}
+
+.navbar .nav>li>a:hover {
+    color: #FFFFFF;
 }
 
 .my-navbar-text {
@@ -122,6 +126,10 @@ input[type="my-text"], input[type="my-password"]{
     height: 30px;
     padding: 4px 6px;
     line-height: 20px;
+}
+
+input[type="my-password"]{
+    -webkit-text-security: disc;
 }
 
 input[type="my-text-top"], input[type="my-password-top"]{

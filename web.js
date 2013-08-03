@@ -9,6 +9,11 @@ var filebuf2= fs.readFileSync(infile2);
 var express = require('express');
 var path = require('path');
 
+//Error Page for email exists
+var email_fail = "email_fail.html"
+var email_fail_buff = fs.readFileSync(email_fail);
+
+
 //Create server with logger
 var app = express.createServer(express.logger());
 
@@ -31,7 +36,7 @@ app.get('/', function(request, response) {
 });
 
 //Responds to a /profile with the contents of profile.html
-app.get('/profile.html', function(request, response) {
+app.get('/profile', function(request, response) {
         
 	response.send(filebuf2.toString());
 });
@@ -57,15 +62,15 @@ app.post('/success', function(request, response) {
 	
 	email = request.body.email;
 	password = request.body.passwd;
-	HandleUserRegistration(email, password );
-	response.end();
+	HandleUserRegistration(email, password, response);
 
 });
 
 
 
+
 //Handles User Registration
-var HandleUserRegistration = function (email,pass){
+var HandleUserRegistration = function (email,pass, response){
 
 	//flag to check if this email/pass should be added
 	var addFlag = true;
@@ -83,6 +88,8 @@ var HandleUserRegistration = function (email,pass){
 		else if (found.length > 0) {
 
 			addFlag = false;
+			response.send(email_fail_buff.toString());
+			response.end();
 			
 		}
 
@@ -109,10 +116,11 @@ var HandleUserRegistration = function (email,pass){
 				else {
 
 				console.log("\n\n" + User + "\n\nRegistered");
-				HandleUserSignIn(email,pass);	
+				response.send(First(email,password));
+				response.end();
 				
 				//Send an email to let user know that it was successful
-			
+					
 				}
 		
 			});
